@@ -90,12 +90,12 @@ footer {
     font-size: 4.5em;
 }
 
-#breaks li {
+#breaks input {
     width: 180px;
     color: white;
 }
 
-#buttons li {
+#buttons input {
     width: 100px;
     color: white;
     
