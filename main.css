@@ -1,0 +1,130 @@
+/**********************************************************
+FONTS 
+**********************************************************/
+@import url(https://fonts.googleapis.com/css?family=Quicksand:400,700);
+@import url(https://fonts.googleapis.com/css?family=EB+Garamond);
+
+/**********************************************************
+BASE STYLINGS
+**********************************************************/
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    font-family: 'EB Garamond', sans-serif;
+    line-height: 1.5;
+    text-align: center;
+    background-color: lightgrey;
+
+}
+
+h1 {
+    font-family: 'Quicksand', sans-serif;
+    text-align: center;
+}
+
+ul li {
+    list-style: none;
+    background-color: red;
+    display: inline-block;
+    background-color: #003459;
+    cursor: pointer;
+    padding: 5px;
+    font-size: 1.2em;
+}
+
+
+input {
+    border: none;
+    
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+/**********************************************************
+LAYOUT
+**********************************************************/
+#container {
+    width: 60%;
+    background-color: #fff;
+    margin: 0 auto;
+    display: flex;
+    flex-flow: column wrap;
+  
+}
+
+.row {
+    margin: 20px auto;
+}
+
+
+/**********************************************************
+ELEMENT STYLING
+**********************************************************/
+
+#minutes,
+#seconds,
+#colon {
+    display: inline-block;
+    
+}
+
+footer {
+    background-color: #007ea7;
+    padding: 20px;
+    margin-top: 20px;
+    font-size: 1.1em;
+    color: white;
+    border-top: 5px solid #00a8e8;
+    box-shadow: 0 6px 10px -4px black;
+    /*border-bottom-left-radius: 5px;*/
+    /*border-bottom-right-radius: 5px;*/
+}
+
+#timer {
+    font-size: 4.5em;
+}
+
+#breaks li {
+    width: 180px;
+    color: white;
+}
+
+#buttons li {
+    width: 100px;
+    color: white;
+    
+}
+
+#breaks input {
+    background-color: #003459;
+}
+
+#header {
+    padding-top: 5px;
+    margin-bottom: 20px;
+    color: black;
+    font-size: 1.5em;
+}
+
+#buttons li:nth-child(1),
+#buttons li:nth-child(1) input {
+ background-color: #59CD90;   
+}
+#buttons li:nth-child(2),
+#buttons li:nth-child(2) input {
+ background-color: #EE6352;   
+}
+#buttons li:nth-child(3),
+#buttons li:nth-child(3) input {
+ background-color: #FAC05E;
+}
+
+/**********************************************************
+MEDIA QUERIES
+**********************************************************/
