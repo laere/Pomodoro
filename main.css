@@ -60,6 +60,7 @@ LAYOUT
 
 .row {
     margin: 20px auto;
+    display: flex;
 }
 
 
@@ -67,6 +68,12 @@ LAYOUT
 ELEMENT STYLING
 **********************************************************/
 
+#minutes,
+#seconds,
+#colon {
+    display: inline-block;
+    
+}
 
 footer {
     background-color: #007ea7;
@@ -86,19 +93,17 @@ footer {
 
 #breaks input {
     width: 180px;
-    background-color: #003459;
+    color: white;
 }
 
 #buttons input {
     width: 100px;
+    color: white;
     
 }
 
-#buttons input , 
 #breaks input {
-    color: white;
-    font-size: 1.2em;
-    cursor: pointer;
+    background-color: #003459;
 }
 
 #header {
@@ -124,3 +129,42 @@ footer {
 /**********************************************************
 MEDIA QUERIES
 **********************************************************/
+
+@media (max-width: 1024px) {
+    #container {
+        width: 90%;
+    }
+}
+
+@media (max-width: 640px) {
+    #container {
+        width: 90%;
+    }
+    
+    #breaks {
+        display: flex;
+        flex-flow: column wrap;
+        justify-content: center;
+        
+    }
+    
+    #breaks li {
+        margin: 5px 0;        
+    }
+}
+
+@media (max-width: 376px) {
+    #container {
+        width: 95%;
+    }
+     #buttons {
+        display: flex;
+        flex-flow: column wrap;
+        justify-content: center;
+        
+    }
+    
+    #buttons li {
+        margin: 5px;
+    }
+}
