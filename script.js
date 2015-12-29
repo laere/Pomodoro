@@ -1,12 +1,8 @@
 //  Problem: Pomodor timer does not have functionality
 //  Solution: Add functionality to the pomodor timer.
-
-//      When a timer is active, and another is clicked. Stop current timer and activate clicked timer.
-//      (EG)if pomodoro timer running, and click short break, stop pomodoro and replace with short break.
-//      
+//      IF a break timer is running WHILE another is clicked, stop running timer, start clicked timer.
 //      Reset current interval time on reset button.
 //      If break buttons are clicked more than once, reset the time.
-    
 window.onload = function() {
  
     var pomodoro = document.querySelector('#set-time'),
@@ -14,14 +10,13 @@ window.onload = function() {
         shortBreak = document.querySelector('#short-brk'),
         stopButton = document.querySelector('#stop'),
         startButton = document.querySelector('#start'),
-//      resetButton = document.querySelector('#reset'),
+        resetButton = document.querySelector('#reset'),
         container = document.querySelector('#container'),
-        timer = document.querySelector('#timer'),
-        seconds = 60;  //set seconds
-   
-   
-//  Click event for break timers.    
+        timer = document.querySelector('#timer');
+        
+   //  Click event for break timers.    
     container.addEventListener('click', function(e) {
+//      store event target
         var el = e.target;
             if (el === pomodoro) {
                 setPomodoro();
@@ -32,19 +27,17 @@ window.onload = function() {
             }
             e.stopPropagation();
     }, false);  
-    
-    startButton.addEventListener('click', setPomodoro, setLongBreak, setShortBreak, false);
-
 //  1.1a Create a timer that counts down from 25 minutes.
     function setPomodoro() {
-        var pomodoroMins = 24;
-         var intervalID = setInterval(function() { //set unique interval ID for each SI func.
-                timer.innerHTML = pomodoroMins + ':' + seconds;
-                seconds--;
-                if (seconds === parseInt('0')) {
-                    pomodoroMins--;
-                    seconds = 60;
-                }
+        var mins = 24;
+        var secs = 60;
+        var intervalID = setInterval(function() { //set unique interval ID for each SI func.
+                timer.innerHTML = mins + ':' + secs;
+                secs--;
+                if (secs === 0) {
+                    mins--;
+                    secs = 60;
+                } 
             }, 1000);
 //      2.2 When stop button is clicked, timer stops
         stopButton.addEventListener('click', function(){
@@ -53,13 +46,14 @@ window.onload = function() {
     }
 //  1.2a Create a timer that counts down from 10 minutes
     function setLongBreak() {
-        var longBreakMins = 9;
+        var mins2 = 9;
+        var secs2 = 60;
         var intervalID2 = setInterval(function() {
-                timer.innerHTML = longBreakMins + ':' + seconds;
-                seconds--;
-                if (seconds === parseInt('0')) {
-                    longBreakMins--;
-                    seconds = 60;
+                timer.innerHTML = mins2 + ':' + secs2;
+                secs2--;
+                if (secs2 === 0) {
+                    mins2--;
+                    secs2 = 60;
                 }
             }, 1000);
          stopButton.addEventListener('click', function(){
@@ -68,13 +62,14 @@ window.onload = function() {
     }
 //  1.3a Create a timer that counts down from 5 minutes.
     function setShortBreak() {
-        var shortBreakMins = 4;
+        var mins3 = 4;
+        var secs3 = 60;
         var intervalID3 = setInterval(function() {
-                timer.innerHTML = shortBreakMins + ':' + seconds;
-                seconds--;
-                if (seconds === parseInt('0')) {
-                    shortBreakMins--;
-                    seconds = 60;
+                timer.innerHTML = mins3 + ':' + secs3;
+                secs3--;
+                if (secs3 === 0) {
+                    mins3--;
+                    secs3 = 60;
                 }
             }, 1000);
         stopButton.addEventListener('click', function() {
@@ -82,6 +77,7 @@ window.onload = function() {
         }, false);
     }
 };
+ 
  
 
 
