@@ -23,5 +23,5 @@ Reset button will reset the current break time to it's default time.
 
 Clicking a different timer will stop the current timer and start the clicked timer.
 
-When break timers are clicked multiplet times, setInterval countsdown faster.
+Prevent break timers being clicked multiplet times if active.
 
