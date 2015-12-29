@@ -1,6 +1,6 @@
 <h1>Pomodoro Timer</h1>
 
-**Things that are done**
+<h2>**Things that are done**</h2>
 
 
 
@@ -15,7 +15,7 @@ Media Queries for mobile viewing.
 
 
 
-**Things that need fixing**
+<h2>**Things that need fixing**</h2>
 
 Start button to work for all 3 timers.
 
