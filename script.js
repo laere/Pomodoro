@@ -14,26 +14,31 @@ window.onload = function() {
         shortBreak = document.querySelector('#short-brk'),
         stopButton = document.querySelector('#stop'),
         startButton = document.querySelector('#start'),
-        resetButton = document.querySelector('#reset'),
+//      resetButton = document.querySelector('#reset'),
+        container = document.querySelector('#container'),
         timer = document.querySelector('#timer'),
-        intervalID,     //create interval ID
-        seconds = 3600/60;  //create time variables
-    
-//  Create click events for main pomodoro buttons
-//  1.1 When pomodoro button is clicked set a 25 minute timer.
-    pomodoro.addEventListener('click', setPomodoro, false);
-//  1.2 When long break timer is clicked set 10 minute timer
-    longBreak.addEventListener('click', setLongBreak, false);
-//  1.3 When short break timer is clicked, set 5 minute timer.
-    shortBreak.addEventListener('click', setShortBreak, false);
+        seconds = 60;  //set seconds
+   
+   
+//  Click event for break timers.    
+    container.addEventListener('click', function(e) {
+        var el = e.target;
+            if (el === pomodoro) {
+                setPomodoro();
+            } else if (el === longBreak) {
+                setLongBreak();
+            } else if (el === shortBreak) {
+                setShortBreak();
+            }
+            e.stopPropagation();
+    }, false);  
     
     startButton.addEventListener('click', setPomodoro, setLongBreak, setShortBreak, false);
-//  resetButton.addEventListener('click', , false);
+
 //  1.1a Create a timer that counts down from 25 minutes.
-    
     function setPomodoro() {
         var pomodoroMins = 24;
-                intervalID = setInterval(function() {
+         var intervalID = setInterval(function() { //set unique interval ID for each SI func.
                 timer.innerHTML = pomodoroMins + ':' + seconds;
                 seconds--;
                 if (seconds === parseInt('0')) {
@@ -49,7 +54,7 @@ window.onload = function() {
 //  1.2a Create a timer that counts down from 10 minutes
     function setLongBreak() {
         var longBreakMins = 9;
-            intervalID = setInterval(function() {
+        var intervalID2 = setInterval(function() {
                 timer.innerHTML = longBreakMins + ':' + seconds;
                 seconds--;
                 if (seconds === parseInt('0')) {
@@ -58,13 +63,13 @@ window.onload = function() {
                 }
             }, 1000);
          stopButton.addEventListener('click', function(){
-            clearInterval(intervalID);
+            clearInterval(intervalID2);
         }, false);
     }
 //  1.3a Create a timer that counts down from 5 minutes.
     function setShortBreak() {
         var shortBreakMins = 4;
-            intervalID = setInterval(function() {
+        var intervalID3 = setInterval(function() {
                 timer.innerHTML = shortBreakMins + ':' + seconds;
                 seconds--;
                 if (seconds === parseInt('0')) {
@@ -73,13 +78,11 @@ window.onload = function() {
                 }
             }, 1000);
         stopButton.addEventListener('click', function() {
-            clearInterval(intervalID);
+            clearInterval(intervalID3);
         }, false);
     }
 };
-
-        
-        
+ 
 
 
 
