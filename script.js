@@ -10,11 +10,9 @@ window.onload = function() {
         shortBreak = document.querySelector('#short-brk'),
         stopButton = document.querySelector('#stop'),
         startButton = document.querySelector('#start'),
-        resetButton = document.querySelector('#reset'),
         container = document.querySelector('#container'),
         timer = document.querySelector('#timer');
-        
-   //  Click event for break timers.    
+ //  Click event for break timers.    
     container.addEventListener('click', function(e) {
 //      store event target
         var el = e.target;
@@ -27,10 +25,19 @@ window.onload = function() {
             }
             e.stopPropagation();
     }, false);  
+    
+    startButton.addEventListener('click', setPomodoro, false);
 //  1.1a Create a timer that counts down from 25 minutes.
     function setPomodoro() {
-        var mins = 24;
-        var secs = 60;
+        if(timer.innerHTML.length > 0){
+            var t = timer.innerHTML.split(':');
+            var mins = parseInt(t[0]);
+            var secs = parseInt(t[1]);
+        }
+        else {
+            var mins = 24;
+            var secs = 60;
+        }
         var intervalID = setInterval(function() { //set unique interval ID for each SI func.
                 timer.innerHTML = mins + ':' + secs;
                 secs--;
@@ -40,8 +47,8 @@ window.onload = function() {
                 } 
             }, 1000);
 //      2.2 When stop button is clicked, timer stops
-        stopButton.addEventListener('click', function(){
-            clearInterval(intervalID);
+        stopButton.addEventListener('click', function() {
+               clearInterval(intervalID);
         }, false);
     }
 //  1.2a Create a timer that counts down from 10 minutes
